@@ -1,0 +1,9 @@
+Stuff to make website look cleaner:
+use Auth 0 for authenications
+use Coolors for color schemes
+use fontawesome for fonts
+use mui for premade user interfaces
+use jwt.io json web token
+use react hook form for forms
+use formik for forms
+use unsplash for high res image
