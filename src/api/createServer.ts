@@ -3,7 +3,7 @@ import { useState } from "react";
 const token = '682b0fadb5b82904c2f815d804124fe781eb14fdf620d41f'
 const finalFormEndpoint = `https://vehicle-z65p.onrender.com/api/vehiclesapi`;
 
-function server2() {
+function createServer() {
   const [status, setStatus] = useState('');
 
   const POSTData = (e) => {
@@ -36,4 +36,4 @@ function server2() {
   return {POSTData, status};
 }
 
-export default server2;
+export default createServer;

@@ -1,5 +1,4 @@
 import {useEffect ,useRef, useState} from 'react';
-import model3landing from '../assets/images/Model3Landing.jpg';
 import cybertrucklanding from '../assets/images/cybertrucklanding.jpeg'
 import future from '../assets/images/Future.png';
 import Box from '@mui/material/Box';
