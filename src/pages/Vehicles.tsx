@@ -24,19 +24,19 @@ return (
     <div className='my-12'>
       <img className="h-auto max-w-full" src={models} alt="image description"/>
       <div className='flex justify-center'>
-        <button className= ' bg-slate-200 rounded border-slate-300 border hover:bg-slate-600 hover:text-gray-200 w-24 py-2'>Model S</button>
+        <button className= ' bg-slate-200 rounded border-slate-300 border hover:bg-slate-600 hover:text-gray-200 w-24 py-2'><Link to='/models'>Model S</Link></button>
       </div>
     </div>
     <div className='my-12'>
       <img className="h-auto max-w-full" src={modely} alt="image description"/>
       <div className='flex justify-center'>
-        <button className= ' bg-slate-200 rounded border-slate-300 border hover:bg-slate-600 hover:text-gray-200 w-24 py-2'>Model Y</button>
+        <button className= ' bg-slate-200 rounded border-slate-300 border hover:bg-slate-600 hover:text-gray-200 w-24 py-2'><Link to='/modely'>Model Y</Link></button>
       </div>
     </div>
     <div className='mt-12'>
       <img className="h-auto max-w-full" src={modelx} alt="image description"/>
       <div className='flex justify-center'>
-        <button className= ' bg-slate-200 rounded border-slate-300 border hover:bg-slate-600 hover:text-gray-200 w-24 py-2'>Model X</button>
+        <button className= ' bg-slate-200 rounded border-slate-300 border hover:bg-slate-600 hover:text-gray-200 w-24 py-2'><Link to='/modelx'>Model X</Link></button>
       </div>
     </div>
     

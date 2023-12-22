@@ -6,12 +6,13 @@ const finalFormEndpoint = `https://vehicle-z65p.onrender.com/api/vehiclesapi`;
 function createServer() {
   const [status, setStatus] = useState('');
 
-  const POSTData = (e) => {
+  const POSTData = (e:any) => {
     e.preventDefault();
     setStatus('loading');
+    
     const data = Array.from(e.target.elements)
-      .filter((input) => input.name)
-      .reduce((obj, input) => Object.assign(obj, { [input.name]: input.value }), {});
+      .filter((input:any) => input.name)
+      .reduce((obj:any, input:any) => Object.assign(obj, { [input.name]: input.value }), {});
 
     fetch(finalFormEndpoint, {
       method: 'POST',

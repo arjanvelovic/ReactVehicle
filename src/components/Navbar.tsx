@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+//@ts-ignore
 import logo from '../assets/images/tesla-9-logo.png'
+import { useAuth0 } from '@auth0/auth0-react';
 
 function Navbar() {
     const [isVisible, setIsVisible] = useState(false)
@@ -10,6 +12,16 @@ function Navbar() {
     const clicked = () => {
         setIsVisible(false)
     }
+
+    const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
+
+    const signOutOnClick = () => {
+        logout();
+    };
+
+    const signInOnClick = () => {
+        loginWithRedirect();
+    };
 
     return (
         <nav className='bg-slate-50 h-full py-3 flex justify-center'>
@@ -38,12 +50,22 @@ function Navbar() {
                 </div>
                 <div className='justify-self-end hidden md:flex'>
                     <div className='px-1 py-2' id='loginbuttons'>
-                        <button className='mx-2 bg-slate-200 rounded border-slate-300 border hover:bg-slate-600 hover:text-gray-200 w-16 py-2'>
-                            Log In
-                        </button>
-                        <button className= 'mx-2 bg-slate-600 text-gray-200 rounded hover:bg-slate-200 hover:text-gray-600 w-16 py-2'>
-                            Sign Up
-                        </button>
+                    {
+                    !isAuthenticated ? 
+                    <button className='mx-2 bg-slate-200 rounded border-slate-300 border hover:bg-slate-600 hover:text-gray-200 w-16 py-2'>
+                            <Link to="/" onClick={signInOnClick}>
+                                Login
+                            </Link>
+                    </button>
+                    :
+                    <button className='mx-2 bg-slate-600 text-gray-200 rounded hover:bg-slate-200 hover:text-gray-600 w-16 py-2'>
+                        <div>
+                            <Link to="/" onClick={signOutOnClick}>
+                                Sign Out
+                            </Link>
+                        </div>
+                    </button>
+                    }
                     </div>
                 </div>   
             </div>
@@ -53,17 +75,23 @@ function Navbar() {
                 </button>
                     { isVisible ? (
                         <div className='grid grid-rows-4 justify-end'>
-                            <button className= 'mt-2 bg-slate-200 rounded border-slate-300 border hover:bg-slate-600 hover:text-gray-200 w-24 py-3'>
+                            <button className= 'mt-2 bg-slate-200 rounded border-slate-300 border hover:bg-slate-600 hover:text-gray-200 w-16 py-2'>
                                 <Link to='/' onClick={ clicked}>Home</Link>
                             </button>
-                            <button className= 'mt-2 bg-slate-200 rounded border-slate-300 border hover:bg-slate-600 hover:text-gray-200 w-24 py-3'>
-                                <Link to='/about' onClick={ clicked}>About</Link>
+                            <button className= 'mt-2 bg-slate-200 rounded border-slate-300 border hover:bg-slate-600 hover:text-gray-200 w-16 py-2'>
+                                <Link to='/vehicles' onClick={ clicked}>Vehicles</Link>
                             </button>
-                            <button className= 'mt-2 bg-slate-200 rounded border-slate-300 border hover:bg-slate-600 hover:text-gray-200 w-24 py-3'>
-                                <Link to='/dashboard' onClick={ clicked}>Dashboard</Link>
+                            <button className= 'mt-2 bg-slate-200 rounded border-slate-300 border hover:bg-slate-600 hover:text-gray-200 w-16 py-2'>
+                                <Link to='/about' onClick={ clicked}>Test</Link>
                             </button>
-                            <button className= 'mt-2 bg-slate-200 rounded border-slate-300 border hover:bg-slate-600 hover:text-gray-200 w-24 py-3'>
-                                <Link to='/test' onClick={ clicked}>Test</Link>
+                            <button className= 'mt-2 bg-slate-200 rounded border-slate-300 border hover:bg-slate-600 hover:text-gray-200 w-16 py-2'>
+                                <Link to='/cart' onClick={ clicked}>Cart</Link>
+                            </button>
+                            <button className='mt-2 bg-slate-200 rounded border-slate-300 border hover:bg-slate-600 hover:text-gray-200 w-16 py-2'>
+                            Log In
+                            </button>
+                            <button className= 'mt-2 bg-slate-600 text-gray-200 rounded hover:bg-slate-200 hover:text-gray-600 w-16 py-2'>
+                                Sign Up
                             </button>
                         </div>
                         ) : (
@@ -72,47 +100,6 @@ function Navbar() {
                 </div>
             
         </nav>
-
-        //  <div className='row w-full block flex-grow items-center'>
-        //                 <div className="text-sm lg:flex-grow">
-        //                  <button className='p-3 m-5 bg-teal-400 justify-center'>
-        //                      <div>
-        //                          <Link to='/' onClick={ clicked} className='flex place-itmes-center mt-4 lg:inline-block lg:mt-0
-        //                          text-teal-200 hover:text-white mr-4'>
-        //                              Home
-        //                          </Link>
-        //                      </div>
-
-        //                  </button>
-        //                  <button className='p-3 m-5 bg-teal-400 justify-center'>
-        //                      <div>
-        //                          <Link to='/about' onClick={ clicked} className='flex place-itmes-center mt-4 lg:inline-block lg:mt-0
-        //                          text-teal-200 hover:text-white mr-4'>
-        //                              About
-        //                          </Link>
-        //                      </div>
-
-        //                  </button>
-        //                  <button className='p-3 m-5 bg-teal-400 justify-center'>
-        //                      <div>
-        //                          <Link to='/dashboard' onClick={ clicked} className='flex place-itmes-center mt-4 lg:inline-block lg:mt-0
-        //                          text-teal-200 hover:text-white mr-4'>
-        //                              Dashboard
-        //                          </Link>
-        //                      </div>
-        //                  </button>
-        //                  <button className='p-3 m-5 bg-teal-400 justify-center'>
-        //                      <div>
-        //                             <Link to='/test' onClick={ clicked} className='flex place-itmes-center mt-4 lg:inline-block lg:mt-0
-        //                          text-teal-200 hover:text-white mr-4'>
-        //                              Test
-        //                          </Link>
-        //                      </div>
-        //                  </button>
-        //              </div>
-        //             </div>
-
-
 
     );}
 

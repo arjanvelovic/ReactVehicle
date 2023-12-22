@@ -7,6 +7,7 @@ import { useGetData } from '../custom-hooks/FetchData';
 
 function DataTable() {
     let [ open, setOpen ] = useState(false);
+    //@ts-ignore
     const { contactData, getData } = useGetData();
     let [ selectionModel, setSelectionModel ] = useState<string[]>([])
     const [row, setRow] = useState({})
@@ -30,6 +31,7 @@ function DataTable() {
         { field: 'cost', headerName: "Cost", flex: 1},
         { field: 'action', headerName: '',flex: 1,
             sortable: false,
+            //@ts-ignore
             disableClickEventBubbling: true,
             
             renderCell: (params) => {

@@ -3,4 +3,7 @@ export * from './Home';
 export * from './Cart';
 export * from './Vehicles';
 export * from './Model3';
-export * from './Cybertruck'
+export * from './ModelS';
+export * from './ModelX';
+export * from './ModelY';
+export * from './Cybertruck';

@@ -1,5 +1,7 @@
 import {useEffect ,useRef, useState} from 'react';
+//@ts-ignore
 import cybertrucklanding from '../assets/images/cybertrucklanding.jpeg'
+//@ts-ignore
 import future from '../assets/images/Future.png';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
@@ -30,16 +32,19 @@ function Cybertruck() {
 
     const ref = useRef(null);
     const handleClick = () => {
+    //@ts-ignore
     ref.current?.scrollIntoView({behavior: 'smooth'});
     };
 
     const ref2 = useRef(null);
     const handleClick2 = () => {
+    //@ts-ignore
     ref2.current?.scrollIntoView({behavior: 'smooth'});
     };
 
     const ref3 = useRef(null);
     const handleClick3 = () => {
+    //@ts-ignore
     ref3.current?.scrollIntoView({behavior: 'smooth'});
     };
 
@@ -104,7 +109,7 @@ function Cybertruck() {
                 <div>
                 <button className="p-3 bg-slate-300 rounded m-3 hover:bg-slate-800 hover:text-white"
                     onClick={() => handleOpen()}>
-                        Create New Vehicle
+                        Order Now
                 </button>
                 <Modal
                     keepMounted
@@ -124,7 +129,7 @@ function Cybertruck() {
         
 
         <div style={{height: '155rem'}} />
-        <div ref={ref3}>Some content here</div>
+        <div ref={ref3}>TODO: Add vehicle spefications</div>
         <div style={{height: '155rem'}} />
     </div>
     )

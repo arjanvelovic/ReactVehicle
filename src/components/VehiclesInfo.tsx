@@ -1,4 +1,4 @@
-const VehiclesInfo = {
+const VehiclesInfo:any = {
     'Model 3': {
         baseCost: 26490,
         'trim': {

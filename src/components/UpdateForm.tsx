@@ -6,7 +6,7 @@ import SelectField from './SelectField';
 import VehiclesInfo from './VehiclesInfo';
 
 interface VehicleFormProps {
-  row: {}
+  row: any
   onClose: () => void;
 }
 
@@ -19,7 +19,7 @@ const UpdateForm = ( props:VehicleFormProps) => {
   const [color, setColor] = useState(props.row.color)
   const [trim, setTrim] = useState(props.row.trim)
 
-  const setAddOns = (target:{}) => {
+  const setAddOns = (target:any) => {
     if (target['name'] === 'color'){
       let currentColor = target['value']
       setColor(currentColor)
@@ -29,10 +29,12 @@ const UpdateForm = ( props:VehicleFormProps) => {
       if (currentTrim === 'none'){
         let trimCost = 0
         setCost(BaseCost+colorCost+trimCost)
+        console.log(`${currentColor}...${currentTrim}...${BaseCost+colorCost+trimCost}`);
       }
       else {
         let trimCost = ModelInfo['trim'][currentTrim]
         setCost(BaseCost+colorCost+trimCost)
+        console.log(`${currentColor}...${currentTrim}...${BaseCost+colorCost+trimCost}`);
       }
     }
     else{
@@ -44,23 +46,22 @@ const UpdateForm = ( props:VehicleFormProps) => {
       if (currentColor === 'none'){
         let colorCost = 0
         setCost(BaseCost+colorCost+trimCost)
+        console.log(`${currentColor}...${currentTrim}...${BaseCost+colorCost+trimCost}`);
       }
       else {
         let colorCost = ModelInfo['color'][currentColor]
         setCost(BaseCost+colorCost+trimCost)
+        console.log(`${currentColor}...${currentTrim}...${BaseCost+colorCost+trimCost}`);
       }
     }
   }
 
   const onSubmit = (data: any, event: any) => {
-    if (props.row.id && props.row.id.length > 0) {
-      console.log(data);
-      server_calls.update(props.row.id, data)
-      setTimeout(() => {window.location.reload()}, 100000);
-      event.target.reset()
-    } else{
-      setTimeout(() => {console.log('This is not a PUT request');}, 1000);
-    }
+    data['cost'] = {cost}.cost;
+    // console.log(data)}
+    server_calls.update(props.row.id, data);
+    setTimeout(() => {window.location.reload()}, 1000);
+    event.target.reset()
   }
 
   return (
@@ -79,14 +80,10 @@ const UpdateForm = ( props:VehicleFormProps) => {
           <TextFieldInput {...register('model')} name='model' placeholder="model" value = {props.row.model}/>
         </div>
         <div className='my-3'>
-        <SelectField {...register('trim')} name='trim' defaultValue={props.row.trim} AddOns={ModelInfo} onChange={(e) => {setAddOns(e.target)}}></SelectField>
+        <SelectField {...register('trim')} name='trim' defaultValue={props.row.trim} addons={ModelInfo} onChange={(e:any) => {setAddOns(e.target)}}></SelectField>
         </div>
         <div className='my-3'>
-        <SelectField {...register('color')} name='color' defaultValue={props.row.color} AddOns = {ModelInfo}onChange = {(e) => {setAddOns(e.target)}}></SelectField>
-        </div>
-        <div className='mt-3'>
-          <label htmlFor="cost">Cost</label>
-          <TextFieldInput {...register('cost')} name='cost' placeholder="Cost" value = {cost}/>
+        <SelectField {...register('color')} name='color' defaultValue={props.row.color} addons = {ModelInfo} onChange = {(e:any) => {setAddOns(e.target)}}></SelectField>
         </div>
         <div className="flex p-1 text-center justify-center">
           <button className="flex justify-start m-3 bg-slate-300 p-2 rounded hover:bg-slate-800 text-white">
@@ -94,6 +91,10 @@ const UpdateForm = ( props:VehicleFormProps) => {
           </button>
         </div>
       </form>
+      <div className='mt-3'>
+          <label htmlFor="cost">Cost</label>
+          <div>{cost}</div>
+        </div>
     </div>
   )
 }

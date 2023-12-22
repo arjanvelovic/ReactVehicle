@@ -5,17 +5,18 @@ import MenuItem from '@mui/material/MenuItem';
 interface InputType {
     name: string
     defaultValue: any
-    AddOns: {}
+    addons: any
+    onChange: any
 }
 
 const SelectField = forwardRef(( props: InputType, ref) => {
-  const AddOns = props.AddOns
+  const addons = props.addons
   const name = props.name
-  const options = Object.entries(AddOns[name])
+  const options = Object.entries(addons[name])
   return (
     <Select inputRef={ref} fullWidth {...props}>
       <MenuItem value='none' disabled hidden>Select a {name}</MenuItem>
-      {options.map((option) => (
+      {options.map((option:any) => (
         <MenuItem
         value={option[0]}
         key={option[0]}

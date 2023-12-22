@@ -19,7 +19,7 @@ const CreateForm = (props:CreateFormProps) => {
 
   const {POSTData, status} = createServer();
 
-  const setAddOns = (target:{}) => {
+  const setAddOns = (target:any) => {
     if (target['name'] === 'color'){
       let currentColor = target['value']
       setColor(currentColor)
@@ -90,10 +90,10 @@ const CreateForm = (props:CreateFormProps) => {
           <TextFieldInput name='model' placeholder="Model"  value = {model}/>
         </div>
         <div className='my-3'>
-        <SelectField name='trim' defaultValue='none' AddOns={ModelInfo} onChange={(e) => {setAddOns(e.target)}}></SelectField>
+        <SelectField name='trim' defaultValue='none' addons={ModelInfo} onChange={(e:any) => {setAddOns(e.target)}}></SelectField>
         </div>
         <div className='my-3'>
-        <SelectField name='color' defaultValue='none' AddOns={ModelInfo} onChange={(e) => {setAddOns(e.target)}}></SelectField>
+        <SelectField name='color' defaultValue='none' addons={ModelInfo} onChange={(e:any) => {setAddOns(e.target)}}></SelectField>
         </div>
         <div className='mt-3'>
           <label htmlFor="cost">Cost</label>
