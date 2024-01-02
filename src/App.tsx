@@ -5,6 +5,9 @@ import { Provider } from 'react-redux';
 import store from './redux/store';
 import { Auth0Provider } from '@auth0/auth0-react';
 import { auth0Config } from './config/auth0.config';
+import Footer from './components/Footer';
+
+
 
 function App() {
   return (
@@ -16,7 +19,7 @@ function App() {
       }}
     >
       <HashRouter>
-        <Navbar />
+        <Navbar/>
         <Provider store={store}>
           <Routes>
             { routes.map((route: any, index: any) => (
@@ -30,6 +33,7 @@ function App() {
             )) }
           </Routes>
         </Provider>
+        <Footer/>
       </HashRouter>
     </Auth0Provider>
   );

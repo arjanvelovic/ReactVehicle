@@ -2,7 +2,7 @@ import createServer from "../api/createServer";
 import TextFieldInput from "./TextFieldInput"
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
-import VehiclesInfo from "./VehiclesInfo";
+import VehiclesInfo from "../assets/info/VehiclesInfo";
 import SelectField from "./SelectField";
 
 interface CreateFormProps {

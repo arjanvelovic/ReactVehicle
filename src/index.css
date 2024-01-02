@@ -4,6 +4,7 @@
 
 * {
     /* border: 1px solid red; */
+    font-family: 'Roboto', Arial, Helvetica, sans-serif !important;
 }
 
 .article {
@@ -36,3 +37,89 @@
     height: fit-content;
     margin: 15% 10% 0% 10%;
 }
+
+.carouselmargin {
+    margin: 37% 10% 0% 10%;
+}
+
+
+#TitleText{
+    font-size:35px;
+}
+
+#HeaderText{
+    font-size:28px;
+}
+
+#SubtitleText{
+    font-size:15px;
+}
+
+#ParagraphText{
+    font-size:12px;
+}
+
+@media only screen and (min-width: 40em) {
+    #TitleText{ font-size:40px;}
+    #HeaderText{ font-size:32px;}
+    #SubtitleText{ font-size:17px;}
+    #ParagraphText{ font-size:14px;}
+    .carouselmargin {margin: 38% 10% 0% 10%;}
+}
+
+/* Medium devices such as tablets (768px and up) */
+@media only screen and (min-width: 48em) {
+    #TitleText{ font-size: 60px;}
+    #HeaderText{ font-size: 40px;}
+    #SubtitleText{ font-size: 19px;}
+    #ParagraphText{ font-size: 16px;}
+    .carouselmargin {margin: 40% 10% 0% 10%;}
+}
+
+/* Large devices such as laptops (1024px and up) */
+@media only screen and (min-width: 64em) {
+    #TitleText{ font-size: 70px;}
+    #HeaderText{ font-size: 45px;}
+    #SubtitleText{ font-size: 20px;}
+    #ParagraphText{ font-size: 17px;}
+    .carouselmargin {margin: 40% 10% 0% 10%;}
+}
+
+/* Largest devices such as desktops (1280px and up) */
+@media only screen and (min-width: 80em) {
+    #TitleText{ font-size: 90px}
+    #HeaderText{ font-size: 50px}
+    #SubtitleText{ font-size: 22px}
+    #ParagraphText{ font-size: 18px}
+    .carouselmargin {margin: 42% 10% 0% 10%;}
+}
+
+  .swiper {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: rgb(247 247 247);
+  
+    /* Center slide text vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  #graybackground{
+    /* background: ; */
+    background-color: rgba(249, 250, 251, 0.479);
+    background: fixed;
+  }
+  

@@ -3,7 +3,7 @@ import { server_calls } from "../api/server"
 import TextFieldInput from "./TextFieldInput"
 import { useState } from 'react'
 import SelectField from './SelectField';
-import VehiclesInfo from './VehiclesInfo';
+import VehiclesInfo from '../assets/info/VehiclesInfo';
 
 interface VehicleFormProps {
   row: any
